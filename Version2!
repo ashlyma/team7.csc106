@@ -138,14 +138,14 @@ var timerStart = 0;
 var peopleX = [];
 var peopleY = [];
 
-var Bitx = [];
-var Bity = [];
+var bitX = [];
+var bitY = [];
 
 //Use a for loop to fill the three arrays with random values
 for (var i=0; i<= 5; i++)
 {
-     Bitx.push(round(random(50,350)));    
-     Bity.push(round(random(50,350)));
+     bitX.push(round(random(50,350)));    
+     bitY.push(round(random(50,350)));
 }
 
 //pushing random values into the location array of the Khan images
@@ -231,7 +231,7 @@ var levelOne = function()
   }
 };
 
-//black screen introducing level 1. should last for 1 second
+//black screen introducing level 2. should last for 1 second
 var levelTwo = function()
 {
   background(0, 0, 0);
@@ -247,15 +247,15 @@ var levelTwo = function()
 var gameScreen1 = function()
 {
     background(117, 234, 255);
-    Bitmoji(Bitx[0],Bity[0],50);
+    Bitmoji(bitX[0],bitY[0],50);
       
-    for (var i = 0; i <= 1; i++)
+    for (var i = 0; i <= 15; i++)
    {
   image((getImage("cute/CharacterCatGirl")),peopleX[i],peopleY[i]);
   image((getImage("cute/CharacterBoy")),peopleX[i]+peopleX[i],peopleY[i]+peopleY[i]);
    }
    
-    if (mouseIsPressed && mouseX >= Bitx[0] && mouseX <= Bitx[0] + 100 && mouseY >= Bity[0] && mouseY <= Bity[0] + 100)
+    if (mouseIsPressed && mouseX >= bitX[0] && mouseX <= bitX[0] + 100 && mouseY >= bitY[0] && mouseY <= bitY[0] + 100)
     {
     //timerStart = millis();
     currentScene++;   // when the player finds the bitmoji, the level increases
@@ -263,26 +263,11 @@ var gameScreen1 = function()
    
 };
 
-var bye = function()
-{
-
-    background(147, 168, 250);
-    fill(255, 255, 255);
-    textSize(25);
-    text("over", 105,140);
-    textSize(14);
-    text("By Abby Civiello and Ashly MR", 104,173);
-    Bitmoji(90,41,50);
-    drawBitmoji(190,3,3);
-    startButton.draw();
-
-};
-
 var gameScreen2 = function()
 {
 
     background(117, 234, 255);
-    Bitmoji(Bitx[1],Bity[1],50);
+    Bitmoji(bitX[1],bitY[1],50);
     
     for (var i = 0; i <= 25; i++)
      {
@@ -290,11 +275,23 @@ var gameScreen2 = function()
      image((getImage("cute/CharacterBoy")),peopleX[i]+peopleX[i],peopleY[i]+peopleY[i]);
      }
     
-    if (mouseIsPressed && mouseX >= Bitx[1] && mouseX <= Bitx[1] + 100 && mouseY >= Bity[1] && mouseY <= Bity[1] + 100)
+    if (mouseIsPressed && mouseX >= bitX[1] && mouseX <= bitX[1] + 100 && mouseY >= bitY[1] && mouseY <= bitY[1] + 100)
     {
     currentScene++;   // when the player finds the bitmoji, the level increases
     //timerStart = millis();
     }
+};
+
+var endScreen = function()
+{
+    background(147, 168, 250);
+    fill(255, 255, 255);
+    textSize(25);
+    text("Congratulations!", 110,210);
+    text("You found all of our bitmojis!", 50,240);
+    textSize(14);
+    Bitmoji(90,87,50);
+    drawBitmoji(190,45,3);
 };
 
 //MOUSE CLICKED
@@ -303,21 +300,19 @@ mouseClicked = function(){
     { 
         startButton.handleMouseClick();
     }
-
 };
 
 //DRAW FUNCTION
 draw = function(){
     if (currentScene === 0) {splashScreen();}
     
-    else if (currentScene === 1) {
-            levelOne();
-    }
-    //else if ((millis() - timerStart) <= 1000) {levelOne();}
+    else if (currentScene === 1) {levelOne();}
+    else if ((millis() - timerStart) <= 1000) {levelOne();}
     
     else if (currentScene === 2) {gameScreen1();}
     else if (currentScene === 3) {levelTwo();}
-    //else if ((millis() - timerStart) <= 1000) {levelTwo();}
+    else if ((millis() - timerStart) <= 1000) {levelTwo();}
+    
     else if (currentScene === 4) {gameScreen2();}
-    else if (currentScene === 5) {bye();}
+    else if (currentScene === 5) {endScreen();}
 };
