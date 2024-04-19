@@ -1,0 +1,375 @@
+//Abby's Bitmoji
+var bitmojiHead = function(headX,headY,headH){
+var ratio = headH/179;
+
+fill(115, 74, 54);
+rect(headX+(ratio*28),headY+ratio*61,ratio*50,ratio*179); //hair
+rect(headX+ratio*164,headY+ratio*61,ratio*50,ratio*179);
+
+noStroke();
+fill(242, 217, 194);
+quad(headX+ratio*80,headY+ratio*240,headX+ratio*200,headY+ratio*240,headX+ratio*260,headY+ratio*260,headX+ratio*60,headY+ratio*270); //shoulders
+ellipse(headX+ratio*120,headY+ratio*140,ratio*150,ratio*200); //head
+rect(headX+ratio*80,headY+ratio*146,ratio*100,ratio*100); //neck
+
+
+stroke(168, 168, 168);
+fill(224, 220, 220);
+ellipse(headX+ratio*40,headY+ratio*138,ratio*50,ratio*70); //headphones
+ellipse(headX+ratio*203,headY+ratio*138,ratio*50,ratio*70);
+rect(headX+ratio*25,headY+ratio*45,ratio*20,ratio*95);
+rect(headX+ratio*195,headY+ratio*45,ratio*20,ratio*95);
+
+noStroke();
+fill(115, 74, 54);
+rect(headX+ratio*85,headY+ratio*110,ratio*20,ratio*5);
+rect(headX+ratio*135,headY+ratio*110,ratio*20,ratio*5);
+triangle(headX+ratio*67,headY+ratio*125,headX+ratio*89,headY+ratio*113,headX+ratio*84,headY+ratio*110); //left eyebrow
+triangle(headX+ratio*154,headY+ratio*115,headX+ratio*174,headY+ratio*125,headX+ratio*155,headY+ratio*110); //right eyebrow
+
+fill(255, 255, 255);
+stroke(51, 32, 21);
+ellipse(headX+ratio*90,headY+ratio*130,ratio*30,ratio*10); //left eye
+ellipse(headX+ratio*150,headY+ratio*130,ratio*30,ratio*10); //right eye
+fill(144, 200, 245);
+ellipse(headX+ratio*90,headY+ratio*130,ratio*10,ratio*10); //left iris
+ellipse(headX+ratio*150,headY+ratio*130,ratio*10,ratio*10); //right iris
+
+strokeWeight(ratio*2);
+point(headX+ratio*90,headY+ratio*130); //pupils
+point(headX+ratio*150,headY+ratio*130);
+
+stroke(148, 77, 111);
+fill(235, 153, 190);
+ellipse(headX+ratio*122,headY+ratio*190,ratio*30,ratio*15); //lips
+line(headX+ratio*108,headY+ratio*190,headX+ratio*136,headY+ratio*190);
+
+stroke(184, 159, 134); //nose
+line(headX+ratio*109,headY+ratio*163,headX+ratio*124,headY+ratio*138);
+noFill();
+bezier(headX+ratio*109,headY+ratio*163,headX+ratio*109,headY+ratio*163,headX+ratio*113,headY+ratio*177,headX+ratio*127,headY+ratio*163);
+
+noStroke();
+fill(115, 74, 54);
+bezier(headX+ratio*120,headY+ratio*45,headX+ratio*284,headY+ratio*74,headX+ratio*140,headY+ratio*271,headX+ratio*196,headY+ratio*175); //bangs hair
+bezier(headX+ratio*120,headY+ratio*45,headX+ratio*200,headY+ratio*70,headX+ratio*40,headY+ratio*-38,headX+ratio*46,headY+ratio*150);
+
+stroke(168,168,168);
+fill(224, 220, 220);
+rect(headX+ratio*25,headY+ratio*39,ratio*190,ratio*22); //top of headphones
+
+};
+var bitmojiBody = function(bodyX,bodyY,bodyH){
+var ratio=bodyH/179;
+
+noStroke();
+fill(115, 74, 54);
+ellipse(bodyX+ratio*180,bodyY+ratio*220,ratio*10,ratio*38); //neck indent
+
+fill(166, 161, 161);
+arc(bodyX+ratio*153,bodyY+ratio*265,ratio*220,ratio*55,-48,225); //shirt
+
+fill(8, 4, 4);
+textSize(ratio*30);
+text("AC",bodyX+ratio*174,bodyY+ratio*283);
+};
+var Bitmoji = function(X,Y,H){
+ bitmojiHead(X,Y,H);
+ bitmojiBody(X,Y,H);
+    
+};
+//Ashly's Bitmoji
+var drawBitmojiBody = function (x,y,sizeScale) {
+    
+    fill(232, 240, 221);
+    noStroke();
+    rect(x + 137 * sizeScale / 8, y + 191 * sizeScale  / 8, 102* sizeScale / 8, 115 * sizeScale / 8); //torso
+    rect(x + 124 * sizeScale / 8, y + 202 * sizeScale / 8, 35 * sizeScale / 8, 152 * sizeScale / 8); //left arm 
+    rect(x + 220 * sizeScale / 8, y + 200 * sizeScale / 8, 35 * sizeScale / 8, 152 * sizeScale / 8); //right arm
+    fill(0, 0, 0);
+    textSize(41 * sizeScale / 8 );
+    text("MR",x + 158 * sizeScale / 8, y + 281 * sizeScale / 8); //shirt label
+};
+var drawBitmojiHead = function (x,y,height) {
+    var sizeScale = height/8;
+    noStroke();
+    fill(255,219,172);
+    ellipse(x + 193 * sizeScale, y + 161* sizeScale, 114* sizeScale, 139* sizeScale); //head
+    fill(255, 255, 255);
+    fill(64, 47, 47); //brown hair
+    rect(x + 126 * sizeScale, y + 119 * sizeScale, 23 * sizeScale, 135 * sizeScale); //left side hair
+    rect(x + 232 * sizeScale, y + 110 * sizeScale, 23 * sizeScale, 145 * sizeScale); //right side hair
+    fill(255,219,172);
+    ellipse(x + 144 * sizeScale, y + 158 * sizeScale, 15 * sizeScale, 16 * sizeScale); //left ear
+    ellipse(x + 236 * sizeScale, y + 158 * sizeScale, 15 * sizeScale, 16 * sizeScale); //right ear
+    fill(245, 201, 5);
+    ellipse(x + 145 * sizeScale, y + 166 * sizeScale, 9* sizeScale, 14* sizeScale); //left earing
+    ellipse(x + 235* sizeScale, y + 166* sizeScale, 9* sizeScale, 14* sizeScale); //right earing
+    fill(227, 195, 195);
+    ellipse(x + 193* sizeScale, y + 113* sizeScale, 143* sizeScale, 58 * sizeScale); //hat
+    ellipse(x + 197* sizeScale, y + 62* sizeScale, 69* sizeScale, 56* sizeScale); //top hat
+    stroke(0,0,0);
+    fill(255,219,172); 
+    stroke(186, 98, 186);
+    rect(x + 159 * sizeScale, y + 146* sizeScale, 24* sizeScale, 20* sizeScale); //left side glasses
+    rect(x + 198* sizeScale, y + 146* sizeScale, 24* sizeScale, 20* sizeScale); //right side glasses
+    line(x + 198 * sizeScale, y + 157 * sizeScale, x + 183 * sizeScale, y + 157* sizeScale); //glasses nose bridge
+    line(x + 148 * sizeScale, y + 154 * sizeScale, x + 159 * sizeScale, y + 157* sizeScale); // left side line glasses
+    line(x + 234 * sizeScale, y + 149* sizeScale, x + 222* sizeScale, y + 157* sizeScale); //right side line glasses
+    fill(0, 0, 0);
+    noStroke();
+    ellipse(x + 172* sizeScale, y + 156* sizeScale, 12* sizeScale, 8* sizeScale); //left eye
+    ellipse(x + 210* sizeScale, y + 156* sizeScale, 12* sizeScale , 8* sizeScale); //right eye
+    fill(255,219,172);
+    stroke(0, 0, 0);
+    bezier(x + 189* sizeScale,y + 173* sizeScale, x + 200* sizeScale, y + 182* sizeScale, x + 211* sizeScale, y + 196* sizeScale, x + 189* sizeScale, y + 192* sizeScale); //nose
+    fill(255, 255, 255); //teeth 
+    arc(x + 193* sizeScale, y + 204* sizeScale, 41 * sizeScale,17* sizeScale,-7, 185); //mouth
+    
+};
+var AshlyBitmoji = function(x,y,sizeScale) {
+    drawBitmojiBody(x,y,sizeScale);
+    drawBitmojiHead(x,y,sizeScale);
+};
+
+// Global variables
+var currentScene = 0;
+var timerStart = 0;
+var peopleX = [];
+var peopleY = [];
+
+var bitX = [];
+var bitY = [];
+
+//Use a for loop to fill the three arrays with random values for bitmojis
+for (var i=0; i<= 5; i++)
+{
+     bitX.push(round(random(50,350)));    
+     bitY.push(round(random(50,350)));
+}
+
+//pushing random values into the location array of the Khan images
+for (var i = 0; i < 500; i++) {
+    peopleX.push(random(0,400));
+    peopleY.push(random(0,400));
+}
+
+//Button object + method
+var Button = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 0;
+    this.width = config.width || 150;
+    this.height = config.height || 50;
+    this.bgcolor = config.bgcolor || color(0, 234, 255);
+    this.label = config.label || "Click";
+    this.onClick = config.onClick || function() {};
+};
+
+Button.prototype.draw = function() {
+    fill(this.bgcolor);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(0, 0, 0);
+    textSize(19);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+10, this.y+this.height/4);
+};
+
+Button.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+};
+
+
+//Start button
+var startButton = new Button ({
+    x: 154,
+    y: 226,
+    width: 79,
+    bgcolor: color(255, 0, 204),
+    label: "PLAY",
+    onClick: function() 
+    {
+        currentScene = 1;
+        timerStart = millis();
+    }
+});
+
+
+//GAME SCREENS, GAME SCREEN === 0
+var splashScreen = function() {
+    background(147, 168, 250);
+    fill(255, 255, 255);
+    textSize(25);
+    text("Find our bitmojis", 105,140);
+    textSize(14);
+    text("By Abby Civiello and Ashly MR", 104,173);
+    Bitmoji(90,41,50);
+    AshlyBitmoji(190,3,3);
+    startButton.draw();
+   
+};
+
+//black screen introducing level 1. should last for 1 second
+
+/*DELETE comment line
+
+var levelOne = function()
+{
+  background(0, 0, 0);
+  textSize(60);
+  fill(255, 255, 255);
+  text("Level 1", 100,150);
+  if (millis() >= 1000)
+  {
+      currentScene = 2;
+  }
+};
+
+*/ //DELETE comment line
+
+/* //DELETE comment line
+//black screen introducing level 2. should last for 1 second
+var levelTwo = function()
+{
+  background(0, 0, 0);
+  textSize(60);
+  fill(255, 255, 255);
+  text("Level 2", 150,150);
+  if (millis() >= 1000)
+  {
+      currentScene = 4;
+  }
+};
+ 
+*///DELETE comment line
+
+//FIRST GAME SCREEN === 1
+var gameScreen1 = function() {
+    background(117, 234, 255);
+    Bitmoji(bitX[0],bitY[0],50);
+      
+    for (var i = 0; i <= 15; i++) {
+  image((getImage("cute/CharacterCatGirl")),peopleX[i],peopleY[i]);
+  image((getImage("cute/CharacterBoy")),peopleX[i]+peopleX[i],peopleY[i]+peopleY[i]);
+   }
+   
+    if (mouseIsPressed && mouseX >= bitX[0] && mouseX <= bitX[0] + 100 && mouseY >= bitY[0] && mouseY <= bitY[0] + 100)
+    {
+    //timerStart = millis();
+    currentScene = 2;   // when the player finds the bitmoji, the level increases
+    
+    }
+   
+};
+
+//SECOND GAME SCREEN === 2
+var gameScreen2 = function() {
+    background(117, 234, 255);
+    AshlyBitmoji(bitX[1],bitY[1],3);
+    
+    for (var i = 0; i <= 25; i++) {
+     image((getImage("cute/CharacterCatGirl")),peopleX[i],peopleY[i]);
+     image((getImage("cute/CharacterBoy")),peopleX[i]+peopleX[i],peopleY[i]+peopleY[i]);
+    }
+    
+    if (mouseIsPressed && mouseX >= bitX[1] && mouseX <= bitX[1] + 100 && mouseY >= bitY[1] && mouseY <= bitY[1] + 100) {
+        
+    currentScene = 3; // when the player finds the bitmoji, the level increases
+    //timerStart = millis();
+    }
+};
+
+//LEVEL THREE SCREEN === 3
+var gameScreen3 = function() {
+    background(240, 101, 194);
+    Bitmoji(bitX[2],bitY[2],35);
+    
+    for (var i = 0; i <= 70; i++) {
+     image((getImage("cute/CharacterCatGirl")),peopleX[i],peopleY[i],50,80);
+     image((getImage("cute/CharacterBoy")),peopleX[i]+peopleX[i],peopleY[i]+peopleY[i], 50,80);
+     
+    }
+    if (mouseIsPressed && mouseX >= bitX[2] && mouseX <= bitX[2] + 100 && mouseY >= bitY[2] && mouseY <= bitY[2] + 100) {
+    currentScene = 4;   // when the player finds the bitmoji, the level increases
+    //timerStart = millis();
+    }
+};
+
+//LEVEL FOUR SCREEN === 4
+var gameScreen4 = function() {
+    background(242, 48, 81);
+    AshlyBitmoji(bitX[3],bitY[3],1.5);
+    
+    for (var i = 0; i <= 150; i++) {
+     image((getImage("cute/CharacterCatGirl")),peopleX[i],peopleY[i],50,80);
+     image((getImage("cute/CharacterBoy")),peopleX[i]+peopleX[i],peopleY[i]+peopleY[i],50,80);
+     
+    }
+    if (mouseIsPressed && mouseX >= bitX[3] && mouseX <= bitX[3] + 100 && mouseY >= bitY[3] && mouseY <= bitY[3] + 100) {
+    currentScene = 5;   // when the player finds the bitmoji, the level increases
+    //timerStart = millis();
+    }
+};
+
+//LEVEL FIVE SCREEN === 5
+var gameScreen5 = function() {
+    background(93, 181, 69);
+    Bitmoji(bitX[4],bitY[4],40);
+    
+   for (var i = 0; i <= 200; i++) {
+     image((getImage("cute/CharacterCatGirl")),peopleX[i],peopleY[i],50,80);
+     image((getImage("cute/CharacterBoy")),peopleX[i]+peopleX[i],peopleY[i]+peopleY[i],50,80);
+     
+    }
+    if (mouseIsPressed && mouseX >= bitX[4] && mouseX <= bitX[4] + 100 && mouseY >= bitY[4] && mouseY <= bitY[4] + 100) {
+    currentScene = 6;   // when the player finds the bitmoji, the level increases
+    //timerStart = millis();
+    }
+};
+
+var endScreen = function()
+{
+    background(147, 168, 250);
+    fill(255, 255, 255);
+    textSize(25);
+    text("Congratulations!", 110,210);
+    text("You found all of our bitmojis!", 50,240);
+    textSize(14);
+    Bitmoji(90,87,50);
+    AshlyBitmoji(190,45,3);
+    currentScene = 7;
+};
+
+//MOUSE CLICKED
+mouseClicked = function(){
+    if (currentScene === 0) 
+    { 
+        startButton.handleMouseClick();
+    }
+};
+
+//DRAW FUNCTION
+draw = function(){
+    if (currentScene === 0) {splashScreen();}
+    
+    //else if (currentScene === 1) {levelOne();}
+    //else if ((millis() - timerStart) <= 1000) {levelOne();}
+    
+    else if (currentScene === 1) {gameScreen1();}
+    //else if (currentScene === 3) {levelTwo();}
+    //else if ((millis() - timerStart) <= 1000) {levelTwo();}
+    
+    else if (currentScene === 2) {gameScreen2();}
+    else if (currentScene === 3) {gameScreen3();}
+    else if (currentScene === 4) {gameScreen4();}
+    else if (currentScene === 5) {gameScreen5();}
+    else if (currentScene === 6) {endScreen();}
+};
