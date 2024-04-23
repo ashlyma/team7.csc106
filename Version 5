@@ -525,7 +525,7 @@ mouseClicked = function() {
         startButton.handleMouseClick(); 
     }
     
-    else if (currentScene === 6) {
+    else if (currentScene === 6 || currentScene === 8) {
         playAgain.handleMouseClick();
     }
 };
